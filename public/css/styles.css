@@ -1,5 +1,5 @@
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 3px;
   height: 3px;
 }
 
@@ -11,6 +11,26 @@
 ::-webkit-scrollbar-thumb {
   background: #009cea;
   border-radius:50px;
+}
+
+.modal .modal-dialog .modal-content .modal-header {
+  background-color: rgb(47, 160, 252);
+  color: whitesmoke;
+}
+
+.table thead tr th {
+  border-bottom: 3px double rgb(47, 160, 252);
+}
+
+.table thead {
+  height: 50px;
+  background-color: rgb(47, 160, 252);
+  color: whitesmoke;
+
+}
+
+.table-responsive .table {
+  border-color: rgb(47, 160, 252);
 }
 
 

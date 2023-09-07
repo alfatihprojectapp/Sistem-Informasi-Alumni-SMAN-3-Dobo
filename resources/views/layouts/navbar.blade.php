@@ -2,14 +2,14 @@
     <div class="container d-flex align-items-center">
 
         <div class="logo me-auto">
-            <h1><a href="/"><img src="/assets/img/logo.png" class="img-fluid"> SMAN 8 BURU</a></h1>
+            <h1 style="font-size: 12pt;"><a href="/"><img src="/assets/img/logo.png" class="img-fluid"> SMA NEGERI 3 DOBO</a></h1>
         </div>
 
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
                 <li><a class="nav-link scrollto {{ Request::is('/') ? 'active' : ' ' }}" href="/">Beranda</a></li>
-                <li><a class="nav-link scrollto {{ Request::is('informasi') ? 'active' : ' ' }}"
-                        href="/informasi">Informasi</a></li>
+                <li><a class="nav-link scrollto {{ Request::is('daftar-alumni') ? 'active' : ' ' }}"
+                        href="/daftar-alumni">Daftar Alumni</a></li>
                 @auth
                     <li class="dropdown"><a href="#"><span>Welcome back, {{ strtoupper(auth()->user()->nama) }}</span>
                             <i class="bi bi-chevron-down"></i></a>

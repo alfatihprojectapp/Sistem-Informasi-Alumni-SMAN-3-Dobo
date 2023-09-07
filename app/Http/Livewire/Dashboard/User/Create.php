@@ -12,23 +12,22 @@ class Create extends Component
 
     // data request
     public $nama;
-    public $email;
+    public $username;
     public $password;
 
     public function store()
     {
         $this->validate([
             'nama' => 'required|max:25',
-            'email' => 'required|email|unique:users,email',
+            'username' => 'required|unique:users,username',
             'password' => 'required|min:8|max:255'
         ]);
 
         User::create([
             'nama' => $this->nama,
-            'email' => $this->email,
-            'email_verified_at'  => date('Y-m-d h:i:s'),
+            'username' => $this->username,
             'password' => password_hash($this->password, PASSWORD_DEFAULT),
-            'remember_token' => Str::random(10),
+            // 'remember_token' => Str::random(10),
             'admin' => 1
         ]);
 

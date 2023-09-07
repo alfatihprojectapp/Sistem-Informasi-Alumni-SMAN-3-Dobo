@@ -39,12 +39,12 @@
                                     </div>
                                     <div class="form-floating mb-3">
                                         <input type="text"
-                                            class="form-control @error('email')
+                                            class="form-control @error('username')
                                                     is-invalid
                                                 @enderror"
-                                            placeholder="Email" name="email" id="email" wire:model.defer="email">
-                                        <label for="email">Email</label>
-                                        @error('email')
+                                            placeholder="Username" name="username" id="username" wire:model.defer="username">
+                                        <label for="username">Username</label>
+                                        @error('username')
                                             <div class="invalid-feedback d-flex justify-content-star">
                                                 {{ $message }}
                                             </div>

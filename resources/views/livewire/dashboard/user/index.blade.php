@@ -1,6 +1,6 @@
 <div>
 
-    <title>{{ $title }} | Dashboard - SMA Negeri 8 Buru</title>
+    <title>{{ $title }}</title>
 
     <div class="content-wrapper">
         <!-- title page -->
@@ -75,8 +75,7 @@
                                         <tr>
                                             <th style="vertical-align: middle;text-align: center;">#</th>
                                             <th style="vertical-align: middle;">Nama Pengguna</th>
-                                            <th style="vertical-align: middle;">Email</th>
-                                            <th style="vertical-align: middle;">Level</th>
+                                            <th style="vertical-align: middle;">Username</th>
                                             <th style="width: 150px;vertical-align: middle;">Aksi</th>
                                         </tr>
                                     </thead>
@@ -87,15 +86,7 @@
                                                     {{ $loop->iteration }}</td>
                                                 <td style="vertical-align: middle;">{{ ucwords($data->nama) }}
                                                 </td>
-                                                <td style="vertical-align: middle;"><a href="mailto:{{ $data->email }}"
-                                                        class="text-decoration-none">{{ $data->email }}</a></td>
-                                                <td style="vertical-align: middle;">
-                                                    @if ($data->admin == 1)
-                                                        <p>Admin</p>
-                                                    @else
-                                                        <p>Siswa</p>
-                                                    @endif
-                                                </td>
+                                                <td style="vertical-align: middle;">{{ $data->username }}</td>
                                                 <td>
                                                     @if ($auth->id == $data->id)
                                                         <button id="noHapus"

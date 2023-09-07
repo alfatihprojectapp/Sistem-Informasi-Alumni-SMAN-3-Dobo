@@ -60,13 +60,13 @@ class Index extends Component
     public function render()
     {
         return view('livewire.dashboard.user.index', [
-            'title' => 'Daftar User',
-            'icon' => '<i class="bi bi-people"></i>',
-            'title_page' => 'Daftar User',
+            'title' => 'Sistem Informasi Alumni | Dashboard - Daftar Admin',
+            'icon' => '<i class="bi bi-person-check"></i>',
+            'title_page' => 'Daftar Admin',
             'auth' => auth()->user(),
             'user' => $this->search == null ?
-                User::orderBy('admin', 'DESC')->paginate($this->paginate) :
-                User::where('nama', 'like', '%' . $this->search . '%')->orderBy('admin', 'DESC')->paginate($this->paginate)
+                User::where('admin', 1)->orderBy('admin', 'DESC')->paginate($this->paginate) :
+                User::where('admin', 1)->where('nama', 'like', '%' . $this->search . '%')->orderBy('admin', 'DESC')->paginate($this->paginate)
         ])->extends('dashboard-layouts.app')->section('container');
     }
 }

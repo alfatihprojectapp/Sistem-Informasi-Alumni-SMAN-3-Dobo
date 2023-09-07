@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Dashboard\User;
 
-use App\Models\Siswa;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -29,24 +28,6 @@ class Delete extends Component
 
     public function destroy($id)
     {
-        $siswa = Siswa::where('id', $id)->first();
-
-        if ($siswa) {
-            if ($siswa->foto) {
-                Storage::delete($siswa->foto);
-            }
-            if ($siswa->kartu_keluarga) {
-                Storage::delete($siswa->kartu_keluarga);
-            }
-            if ($siswa->akta_kelahiran) {
-                Storage::delete($siswa->akta_kelahiran);
-            }
-            if ($siswa->ijazah) {
-                Storage::delete($siswa->ijazah);
-            }
-
-            DB::table('siswa')->where('id_siswa', '=', $siswa->id_siswa)->delete();
-        }
 
         User::destroy('id', $id);
 

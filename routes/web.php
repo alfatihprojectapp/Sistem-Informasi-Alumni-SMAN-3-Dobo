@@ -1,21 +1,18 @@
 <?php
 
-use App\Http\Controllers\Dashboard\Laporan\Cetak;
+use App\Http\Controllers\ExportController;
+use App\Http\Controllers\ImportController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Livewire\Beranda;
-use App\Http\Livewire\Dashboard\Biodata\Index as BiodataIndex;
-use App\Http\Livewire\Dashboard\Dokumen\Index as DokumenIndex;
-use App\Http\Livewire\Dashboard\Finish\Index as FinishIndex;
+use App\Http\Livewire\DaftarAlumni;
+use App\Http\Livewire\Dashboard\Alumni\Index as AlumniIndex;
+use App\Http\Livewire\Dashboard\DaftarKetuaAngkatan\Index as DaftarKetuaAngkatanIndex;
 use App\Http\Livewire\Dashboard\Index;
-use App\Http\Livewire\Dashboard\Informasi\Index as InformasiIndex;
-use App\Http\Livewire\Dashboard\Jurusan\Index as JurusanIndex;
-use App\Http\Livewire\Dashboard\Laporan\Index as LaporanIndex;
+use App\Http\Livewire\Dashboard\KetuaAngkatan\Alumni\Index as KetuaAngkatanAlumniIndex;
 use App\Http\Livewire\Dashboard\Profil\Index as ProfilIndex;
-use App\Http\Livewire\Dashboard\TahunPendaftaran\Index as TahunPendaftaranIndex;
+use App\Http\Livewire\Dashboard\TahunAkademik\Index as TahunAkademikIndex;
 use App\Http\Livewire\Dashboard\User\Index as UserIndex;
-use App\Http\Livewire\Informasi;
 use App\Http\Livewire\Login;
-use App\Http\Livewire\Registrasi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,9 +41,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', Beranda::class);
 
-Route::get('/informasi', Informasi::class);
-
-Route::get('/registrasi', Registrasi::class)->middleware('openRegister', 'guest');
+Route::get('/daftar-alumni', DaftarAlumni::class);
 
 Route::get('/login', Login::class)->middleware('guest')->name('login');
 
@@ -56,25 +51,29 @@ Route::controller(LogoutController::class)->group(function () {
 
 
 // dashboard admin
-Route::get('/dashboard', Index::class)->middleware('auth');
+Route::get('/dashboard/beranda', Index::class)->middleware('auth');
 
-Route::get('/dashboard/master/jurusan', JurusanIndex::class)->middleware('admin');
+Route::get('/dashboard/tahun-angkatan', TahunAkademikIndex::class)->middleware('admin');
 
-Route::get('/dashboard/master/user', UserIndex::class)->middleware('admin');
+Route::get('/dashboard/daftar-ketua-angkatan', DaftarKetuaAngkatanIndex::class)->middleware('admin');
 
-Route::get('/dashboard/master/tahun-pendaftaran', TahunPendaftaranIndex::class)->middleware('admin');
+Route::get('/dashboard/daftar-alumni', AlumniIndex::class)->middleware('admin');
 
-Route::get('/dashboard/informasi', InformasiIndex::class)->middleware('auth');
+Route::get('/dashboard/daftar-alumni/{tahun:id_tahun}', KetuaAngkatanAlumniIndex::class)->middleware('ketang');
 
-Route::get('/dashboard/laporan', LaporanIndex::class)->middleware('admin');
-
-Route::controller(Cetak::class)->group(function () {
-    Route::get('/dashboard/siswa/{jurusan:kode_jurusan}/{tahun:tahun}/cetak', 'cetak')->middleware('admin');
+Route::controller(ImportController::class)->group(function(){
+    Route::post('/dashboard/ketua-angkatan/import', 'importKetuaAngkatan')->middleware('admin');
+    Route::post('/dashboard/alumni/import', 'importAlumni')->middleware('admin');
+    Route::post('/dashboard/alumni/{tahun:id_tahun}/import', 'importAlumni2')->middleware('ketang');
 });
+
+Route::controller(ExportController::class)->group(function () {
+    Route::get('/dashboard/export-daftar-ketua-angkatan/excel', 'exportKetuaAngkatan')->middleware('admin');
+    Route::get('/dashboard/export-alumni/excel/{tahun:id_tahun}', 'exportAlumni')->middleware('auth');
+});
+
+
+Route::get('/dashboard/admin', UserIndex::class)->middleware('admin');
 
 Route::get('/dashboard/user/profil', ProfilIndex::class)->middleware('admin');
 
-// dashboard siswa
-Route::get('/dashboard/lengkapi/biodata', BiodataIndex::class)->middleware('siswa');
-Route::get('/dashboard/lengkapi/dokumen', DokumenIndex::class)->middleware('siswa');
-Route::get('/dashboard/lengkapi/finish', FinishIndex::class)->middleware('siswa');

@@ -3,7 +3,7 @@
         $openRegister = \App\Models\TahunPendaftaran::where('is_actived', 1)->count();
     @endphp
 
-    <title>Login - SMA Negeri 8 Buru</title>
+    <title>Sistem Informasi Alumni | SMA Negeri 3 Dobo - Login</title>
 
     {{-- @if (session()->has('message'))
         <div>
@@ -36,12 +36,12 @@
         <section wire:ignore.self id="kontak" class="services" data-aos="fade-up" data-aos-duration="1000">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-lg-10">
+                    <div class="col-lg-8">
                         <h3 class="text-dark text-center"><i class="bi bi-box-arrow-in-right"></i> Silahkan Login</h3>
 
                         <div class="card px-4 py-3 mt-3">
                             <div class="row g-0">
-                                <div class="col-md-7">
+                                <div class="col-md-12">
                                     <div class="card-body">
                                         @if (session()->has('message'))
                                             <script>
@@ -58,12 +58,12 @@
                                             @csrf
                                             <div class="mb-3">
                                                 <div class="form-floating">
-                                                    <input type="text" wire:model.defer="email"
-                                                        class="form-control @error('email') is-invalid @enderror"
-                                                        placeholder="email" value="{{ old('email') }}" name="email"
-                                                        id="email" autofocus>
-                                                    <label for="email">Email</label>
-                                                    @error('email')
+                                                    <input type="text" wire:model.defer="username"
+                                                        class="form-control @error('username') is-invalid @enderror"
+                                                        placeholder="Username" value="{{ old('username') }}" name="username"
+                                                        id="username" autofocus>
+                                                    <label for="username">Username</label>
+                                                    @error('username')
                                                         <div class="invalid-feedback d-flex justify-content-star">
                                                             {{ $message }}
                                                         </div>
@@ -120,9 +120,6 @@
                                             </div>
                                         @endif
                                     </div>
-                                </div>
-                                <div class="col-md-5">
-                                    <img src="/assets/img/hero-img.png" class="img-fluid">
                                 </div>
                             </div>
                         </div>

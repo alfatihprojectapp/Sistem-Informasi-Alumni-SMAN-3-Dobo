@@ -1,6 +1,6 @@
 <div>
 
-    <title>{{ $title }} | Dashboard - SMA Negeri 8 Buru</title>
+    <title>{{ $title }}</title>
 
     @if ($showUpdateNama)
         @livewire('dashboard.profil.update-nama')
@@ -87,10 +87,10 @@
                                     <span class="info-box-icon elevation-1 bg-primary"><i
                                             class="bi bi-person-check-fill"></i></span>
                                     <div class="info-box-content">
-                                        <span class="fw-bold">Email</span>
+                                        <span class="fw-bold">Username</span>
                                         <span class="info-box-text">
                                             <input type="input" class="form-control" id="foto" name="foto"
-                                                required readonly value="{{ auth()->user()->email }}">
+                                                required readonly value="{{ auth()->user()->username }}">
                                         </span>
                                         <span class="info-box-number">
                                             <!-- 1 -->

@@ -3,7 +3,7 @@
     <div class="text-center mt-3 mb-3">
         <img src="/assets/img/logo.png" alt="Logo" class="brand-text" style="width: 100px;">
         <div class="brand-text mt-2">
-            <h6 class="text-light">SMAN 8 BURU</h6>
+            <h6 class="text-light">SIA SMAN 3 DOBO</h6>
         </div>
     </div>
 
@@ -28,118 +28,67 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <li class="nav-item nav-active">
-                    <a href="/dashboard"
-                        class="nav-link {{ Request::is('dashboard') ? 'bg-secondary bg-opacity-50 active active' : '' }}">
-                        <i class="nav-icon bi bi-layout-text-sidebar-reverse"></i>
+                    <a href="/dashboard/beranda"
+                        class="nav-link {{ Request::is('dashboard/beranda') ? 'bg-secondary bg-opacity-50 active active' : '' }}">
+                        <i class="nav-icon bi bi-house"></i>
                         <p>
-                            Dashboard
+                            Beranda
                         </p>
                     </a>
                 </li>
 
                 @can('admin')
-                    <li class="nav-item has-treeview {{ Request::is('dashboard/master*') ? 'menu-open' : '' }}">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon bi bi-folder2-open"></i>
+                    <li class="nav-item nav-active">
+                        <a href="/dashboard/tahun-angkatan"
+                            class="nav-link {{ Request::is('dashboard/tahun-angkatan') ? 'bg-secondary bg-opacity-50 active active' : '' }}">
+                            <i class="nav-icon bi bi-table"></i>
                             <p>
-                                Data Master
-                                <i class="bi bi-chevron-left right"></i>
+                                Tahun Angkatan
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item nav-active">
-                                <a href="/dashboard/master/jurusan"
-                                    class="nav-link {{ Request::is('dashboard/master/jurusan*') ? 'bg-secondary bg-opacity-50 active active' : '' }}">
-                                    <i class="nav-icon bi bi-arrow-return-right"></i>
-                                    <p>
-                                        Data Jurusan
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/dashboard/master/tahun-pendaftaran"
-                                    class="nav-link {{ Request::is('dashboard/master/tahun-pendaftaran*') ? 'bg-secondary bg-opacity-50 active active' : '' }}">
-                                    <i class="nav-icon bi bi-arrow-return-right"></i>
-                                    <p>
-                                        Tahun Pendaftaran
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/dashboard/master/user"
-                                    class="nav-link {{ Request::is('dashboard/master/user*') ? 'bg-secondary bg-opacity-50 active active' : '' }}">
-                                    <i class="nav-icon bi bi-arrow-return-right"></i>
-                                    <p>
-                                        Daftar User
-                                    </p>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
-                @endcan
-
-                @can('siswa')
-                    <li class="nav-item has-treeview {{ Request::is('dashboard/lengkapi*') ? 'menu-open' : '' }}">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon bi bi-person-video2"></i>
+                    <li class="nav-item nav-active">
+                        <a href="/dashboard/daftar-ketua-angkatan"
+                            class="nav-link {{ Request::is('dashboard/daftar-ketua-angkatan') ? 'bg-secondary bg-opacity-50 active active' : '' }}">
+                            <i class="nav-icon bi bi-people"></i>
                             <p>
-                                Lengkapi Data
-                                <i class="bi bi-chevron-left right"></i>
+                                Daftar Ketua Angkatan
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item nav-active">
-                                <a href="/dashboard/lengkapi/biodata"
-                                    class="nav-link {{ Request::is('dashboard/lengkapi/biodata*') ? 'bg-secondary bg-opacity-50 active active' : '' }}">
-                                    <i class="nav-icon bi bi-arrow-return-right"></i>
-                                    <p>
-                                        Biodata Diri
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/dashboard/lengkapi/dokumen"
-                                    class="nav-link {{ Request::is('dashboard/lengkapi/dokumen*') ? 'bg-secondary bg-opacity-50 active' : '' }}">
-                                    <i class="nav-icon bi bi-arrow-return-right"></i>
-                                    <p>
-                                        Dokumen Pendaftaran
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/dashboard/lengkapi/finish"
-                                    class="nav-link {{ Request::is('dashboard/lengkapi/finish*') ? 'bg-secondary bg-opacity-50 active' : '' }}">
-                                    <i class="nav-icon bi bi-arrow-return-right"></i>
-                                    <p>
-                                        Finish
-                                    </p>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
-                @endcan
-
-                @can('admin')
+                    <li class="nav-item nav-active">
+                        <a href="/dashboard/daftar-alumni"
+                            class="nav-link {{ Request::is('dashboard/daftar-alumni') ? 'bg-secondary bg-opacity-50 active active' : '' }}">
+                            <i class="nav-icon bi bi-people"></i>
+                            <p>
+                                Daftar Alumni
+                            </p>
+                        </a>
+                    </li>
                     <li class="nav-item">
-                        <a href="/dashboard/laporan"
-                            class="nav-link {{ Request::is('dashboard/laporan*') ? 'bg-secondary bg-opacity-50 active' : '' }}">
-                            <i class="nav-icon bi bi-file-earmark-arrow-down"></i>
+                        <a href="/dashboard/admin"
+                            class="nav-link {{ Request::is('dashboard/admin*') ? 'bg-secondary bg-opacity-50 active active' : '' }}">
+                            <i class="nav-icon bi bi-person-check"></i>
                             <p>
-                                Laporan Pendaftaran
+                                Admin
                             </p>
                         </a>
                     </li>
                 @endcan
-
-                <li class="nav-item">
-                    <a href="/dashboard/informasi"
-                        class="nav-link {{ Request::is('dashboard/informasi*') ? 'bg-secondary bg-opacity-50 active' : '' }}">
-                        <i class="nav-icon bi bi-info-circle"></i>
-                        <p>
-                            Informasi
-                        </p>
-                    </a>
-                </li>
+                @can('ketua_angkatan')
+                @php
+                    $user = auth()->user();
+                @endphp
+                    <li class="nav-item nav-active">
+                        <a href="/dashboard/daftar-alumni/{{ $user->tahun->id_tahun }}"
+                            class="nav-link {{ Request::is('dashboard/daftar-alumni*') ? 'bg-secondary bg-opacity-50 active active' : '' }}">
+                            <i class="nav-icon bi bi-people"></i>
+                            <p>
+                                Daftar Alumni {{ $user->tahun->tahun }}
+                            </p>
+                        </a>
+                    </li>
+                @endcan
 
             </ul>
         </nav>

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Request;
 
 class Login extends Component
 {
-    public $email;
+    public $username;
     public $password;
     public $remember_me = false;
 
@@ -23,14 +23,14 @@ class Login extends Component
         $remember_me = $this->remember_me ? true : false;
 
         $validateData =  $this->validate([
-            'email' => 'required',
+            'username' => 'required',
             'password' => 'required'
         ]);
 
         if (Auth::attempt($validateData, $remember_me)) {
             session()->regenerate();
 
-            return redirect()->intended('/dashboard')->with('message', 'success/Login Berhasil');
+            return redirect()->intended('/dashboard/beranda')->with('message', 'success/Login Berhasil');
         }
 
         $this->emit('error');

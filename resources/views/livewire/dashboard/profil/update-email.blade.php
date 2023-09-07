@@ -20,7 +20,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5><i class="bi bi-pencil"></i> Ubah Email</h5>
+                        <h5><i class="bi bi-pencil"></i> Ubah Username</h5>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
@@ -31,9 +31,9 @@
                                             class="form-control @error('email')
                                                     is-invalid
                                                 @enderror"
-                                            placeholder="Email" value="{{ old('email') }}" name="email"
+                                            placeholder="Username" value="{{ old('email') }}" name="email"
                                             id="email" wire:model="email">
-                                        <label for="email">Email</label>
+                                        <label for="email">Username</label>
                                         @error('email')
                                             <div class="invalid-feedback d-flex justify-content-star">
                                                 {{ $message }}

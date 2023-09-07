@@ -14,41 +14,12 @@ class User extends Authenticatable
 
     protected $guarded = ['id'];
 
-    public function siswa()
+    protected $with = ['tahun'];
+
+
+    public function tahun()
     {
-        return $this->hasOne(Siswa::class, 'id');
+        return $this->belongsTo(TahunAkademik::class, 'id_tahun');
     }
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    // protected $fillable = [
-    //     'nama',
-    //     'email',
-    //     'password',
-    //     'email_verified_at',
-    //     'remember_token',
-    //     'admin'
-    // ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
 }

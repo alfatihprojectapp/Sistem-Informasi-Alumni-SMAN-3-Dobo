@@ -15,11 +15,11 @@ class UpdateEmail extends Component
     {
 
         $this->validate([
-            'email' => 'required|email|unique:users,email|max:255'
+            'email' => 'required|unique:users,username|max:10'
         ]);
 
         User::where('id', auth()->user()->id)->update([
-            'email' => $this->email
+            'username' => $this->email
         ]);
 
         $this->emit('emailUpdated');

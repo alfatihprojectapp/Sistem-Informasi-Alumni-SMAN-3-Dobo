@@ -33,7 +33,7 @@ class AuthServiceProvider extends ServiceProvider
             return $user->admin == 1;
         });
 
-        Gate::define('siswa', function (User $user) {
+        Gate::define('ketua_angkatan', function (User $user) {
             return $user->admin == 0;
         });
     }

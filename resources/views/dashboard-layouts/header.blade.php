@@ -48,6 +48,12 @@
     <script src="/vendor/summernote-math/katex.min.js"></script>
     <script src="/vendor/summernote-math/summernote-math.js"></script>
 
+    <style>
+        body {
+            font-family: "Raleway", sans-serif;
+        }
+    </style>
+
     @livewireStyles
 </head>
 

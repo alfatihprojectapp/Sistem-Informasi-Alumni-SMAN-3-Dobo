@@ -332,13 +332,11 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  background-image: url("/assets/img/bg-2.jpeg");
+  /* height: 436px; */
+  /* background: url("/assets/img/bg.jpg") center center; */
+  /* background-size: cover; */
+  position: relative;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: bottom;
-  /* -webkit-filter: brightness(75%); */
-  margin-top: 70px;
-  padding: 60px 0;
 }
 
 #hero h1 {
@@ -948,8 +946,9 @@ section {
 .team {
   background: url("../img/team-bg.jpg") center center no-repeat;
   background-size: cover;
-  padding: 60px 0;
+  padding: 0 0;
   position: relative;
+  margin-top: -30px;
 }
 
 .team::before {

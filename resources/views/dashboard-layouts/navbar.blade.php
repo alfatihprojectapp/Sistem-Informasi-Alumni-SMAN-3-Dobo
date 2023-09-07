@@ -1,4 +1,4 @@
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<nav class="main-header navbar navbar-expand navbar-white navbar-dark border-0" style="background-color: rgb(47, 160, 252);">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
@@ -6,11 +6,10 @@
                 <i class="bi bi-text-left"></i>
             </a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="/" class="nav-link"><i class="bi bi-house-fill"></i> Beranda</a>
+        <li class="nav-item d-none d-md-inline-block">
+            <a href="#" class="nav-link">Sistem Informasi Alumni SMA Negeri 3 Dobo</a>
         </li>
     </ul>
-
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">

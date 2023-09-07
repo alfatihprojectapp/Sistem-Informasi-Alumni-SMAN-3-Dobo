@@ -66,8 +66,8 @@ class Index extends Component
     public function render()
     {
         return view('livewire.dashboard.profil.index', [
-            'title' => 'Profil',
-            'icon' => '<i class="bi bi-person"></i>',
+            'title' => 'Sistem Informasi Alumni | Dashboard - Profil',
+            'icon' => '<i class="bi bi-person-check"></i>',
             'title_page' => 'Profil',
             // 'profil' => ProfilInstansi::first(),
         ])->extends('dashboard-layouts.app')->section('container');

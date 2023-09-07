@@ -20,10 +20,9 @@ class DatabaseSeeder extends Seeder
         // admin
         \App\Models\User::create([
             'nama' => 'Admin Sekolah',
-            'email' => 'admin@gmail.com',
-            'email_verified_at' => now(),
+            'username' => 'admin',
             'password' => password_hash('admin', PASSWORD_DEFAULT),
-            'remember_token' => Str::random(10),
+            // 'remember_token' => Str::random(10),
             'admin' => 1
         ]);
 
